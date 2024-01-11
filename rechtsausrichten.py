@@ -18,11 +18,29 @@ def get_leerzeichen(wort) -> str:
 
 str1 = 'blblblblb'
 ergebniss1 = get_leerzeichen(str1)
-print(ergebniss1)
 
-str2 = 'allen'
-ergebniss2 = get_leerzeichen(str2)
-print(ergebniss2)
+
+# Email configuration
+sender_email = "sender_email@gmail.com"
+receiver_email = "receiver_email@gmail.com"
+password = "your_email_password"
+
+# Create the email message
+subject = "Leerzeichen Result"
+message = MIMEMultipart()
+message['From'] = sender_email
+message['To'] = receiver_email
+message['Subject'] = subject
+
+# Attach the result to the email body
+body = f"Result: {ergebniss1}"
+message.attach(MIMEText(body, 'plain'))
+
+# Connect to the SMTP server and send the email
+with smtplib.SMTP('smtp.gmail.com', 587) as server:
+    server.starttls()
+    server.login(sender_email, password)
+    server.send_message(message)
 
 
 # def ridht_justify(str):
