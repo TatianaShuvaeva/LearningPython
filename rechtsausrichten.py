@@ -1,18 +1,29 @@
 def get_leerzeichen(wort) -> str:
+    """
+    Diese Funktion fügt Leerzeichen vor ein Wort ein,
+    sodass die Gesamtlänge des resultierenden Strings 70 beträgt.
+
+    Parameters:
+    wort (str): Das Wort, dem Leerzeichen hinzugefügt werden sollen.
+
+    Returns:
+    str: Der resultierende String mit Leerzeichen vor dem Wort.
+    """
     wort_len = len(wort)
-    anzahl_links = 70-wort_len
+    anzahl_links = 70 - wort_len
     leerzeichen = " " * anzahl_links
     ergebniss = leerzeichen + wort
     return ergebniss
 
 
-str = 'blblblblb'
-ergebniss1 = get_leerzeichen(str)
+str1 = 'blblblblb'
+ergebniss1 = get_leerzeichen(str1)
 print(ergebniss1)
 
-str = 'allen'
-ergebniss2 = get_leerzeichen(str)
+str2 = 'allen'
+ergebniss2 = get_leerzeichen(str2)
 print(ergebniss2)
+
 
 # def ridht_justify(str):
 #     pro=" "*(70-len(str))
