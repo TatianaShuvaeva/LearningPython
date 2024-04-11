@@ -11,6 +11,8 @@ file_input = open(path_to_file)
 metadaten = {}
 line_number = 1
 games = ''
+line_number = 1
+games = ''
 for line in file_input:
     if line_number < 10:
         line_neu = line.strip('][\n')
