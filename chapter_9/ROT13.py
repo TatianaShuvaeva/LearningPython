@@ -1,12 +1,11 @@
-def rotate_word(word, number):
+def rotate_word(word,number):
     result = ""
-    for c in word:
+    for c in word:  
         code = ord(c)
         new_code = get_new_code(number, code)
         new_letter = chr(new_code)
         result += new_letter
     return result
-
 
 def get_new_code(number, code):
     new_code = code + number
@@ -26,7 +25,7 @@ def get_new_code(number, code):
 
 word = 'KayAk'
 number = 13
-new_word = rotate_word(word, number)
+new_word = rotate_word(word,number)
 print(new_word)
 
 
