@@ -21,43 +21,40 @@ for line in file_input:
         value = line_split[1].strip('"')
         metadaten[key] = value
     elif line_number > 10:
-        games_ohne = line.strip('\n') #Entfernt man Zeilenumbrüche
-        # games += games_ohne
-        games = games + ' ' + games_ohne   #Fügt man die Zeilen zu einer zusammen und fügt man ein Leerzeichen dazwischen ein'
+        games_ohne = line.strip('\n')  # Entfernt man Zeilenumbrüche
+       
+        # Fügt man die Zeilen zu einer zusammen und fügt man ein Leerzeichen
+        # dazwischen ein'
+        games = games + ' ' + games_ohne
 
     line_number += 1
-    
-games_split = games.split() #Teilt man eine Zeile mit einem Leerzeichen
+print(metadaten)   
+games_split = games.split()  # Teilt man eine Zeile mit einem Leerzeichen
 
 
-games_refined = ''
-for i in games_split:
-    for s in i:
-        if  s.isdigit() is True:    #Überprüft man, ob es Ziffern in jedem Elementgibt
-            games_refined = games_refined + ' '+ i # Entfernt man {Kasparov schüttelt kurz den Kopf}
+games_refined = []
+for element in games_split[:-1]:  # Alle Elemente außer dem letzten
+
+    for symbol in element:
+        if symbol.isdigit() is True:  # Überprüft man, ob es Ziffern in jedem Element gibt
+            games_refined.append(element)  # Entfernt man {Kasparov schüttelt kurz den Kopf}
             break
     
 # for e in games_refined: 
-games_element = games_refined.split()
-# print(games_element)
-# zuege_spiel = []
-# for i in games_element:
-#     igames_element = i.split('.')
-#     for i in games_element:
-#         if len(i) == 2:
-#             zuege_spiel = zuege_spiel + ' ' + i[1]
-#         else:
-#             zuege_spiel = zuege_spiel + ' ' + i[0]
 
+zuege_spiel = []
+for element in games_refined:
+    igames_element = element.split('.')  # Element nach Punkt aufteilen
     
-#     print(zuege_spiel)
-# print(metadaten)
-    #  igames_element = i.split('.')
+    #  Fügt man dem neuen Array nur zweite Element hinzu, wenn es zwei davon gibt
+    
+    if len(igames_element) == 2:
+        zuege_spiel.append(igames_element[1]) 
+    else:
+        zuege_spiel.append(igames_element[0])
 
-#  '1.e4'.split('.')
-# ['1', 'e4']
-# 'c6'.split('.')
-# ['c6']
-# games_result = ['e4']
-# print(metadaten)
+# for element in zuege_spiel:
+#     print(f"zuege[{zuege_spiel.index(element)}]={element}")
 
+for idx, element in enumerate(zuege_spiel):  # Zweite bessere Variante 
+    print(f"zuege[{idx}]={element}")
