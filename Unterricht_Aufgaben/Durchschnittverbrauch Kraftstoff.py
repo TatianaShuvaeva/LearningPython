@@ -30,7 +30,6 @@
 
 
 richtig_eingeben = False
-Versuchen = 1
 
 kraftstoffmenge = float(input("Bitte geben Sie die Kraftstoffmenge ein: "))
 kilometer = float(input("Bitte geben Sie die gefahrenen Kilometer ein: "))
@@ -56,5 +55,4 @@ while not richtig_eingeben:  # Beginn einer Schleife, die nur durch ein break be
     else:
 
         print("Die Kraftstoffmenge sollte > 0 sein")
-        kraftstoffmenge = float(
-            input("Bitte geben Sie die Kraftstoffmenge ein: "))
+        kraftstoffmenge = float(input("Bitte geben Sie die Kraftstoffmenge ein: "))
