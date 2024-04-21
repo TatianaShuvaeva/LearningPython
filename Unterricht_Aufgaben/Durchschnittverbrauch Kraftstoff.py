@@ -29,30 +29,20 @@
 #             input("Bitte geben Sie noch mal die Kraftstoffmenge ein: "))
 
 
-richtig_eingeben = False
 
-kraftstoffmenge = float(input("Bitte geben Sie die Kraftstoffmenge ein: "))
-kilometer = float(input("Bitte geben Sie die gefahrenen Kilometer ein: "))
+kraftstoffmenge = 0
+kilometer = 0
 
-while not richtig_eingeben:  # Beginn einer Schleife, die nur durch ein break beendet
+while kraftstoffmenge <= 0 or kilometer <=0:  # Beginn einer Schleife, die nur durch ein break beendet
 
-    if kraftstoffmenge > 0:  # Überprüfung, ob die eingegebene Kraftstoffmenge gültig ist
-
-        if kilometer > 0:  # Überprüfung, ob die eingegebenen Kilometer gültig sind
-
-            durchschnittverbrauch = round((kraftstoffmenge/kilometer) * 100)
-            print(f"Durchschnittverbrauch: {durchschnittverbrauch} Liter/100 km")
-                  
-
-            richtig_eingeben = True   # Setzen der Flagge für korrekte Eingabe auf True
-            break  # Beenden der Schleife
-
-        else:
-            print("Die gefahrenen Kilometer sollten > 0 sein")
-            kilometer = float(
-                input("Bitte geben Sie die gefahrenen Kilometer ein: "))
-
-    else:
-
+    if kraftstoffmenge <= 0:  # Überprüfung, ob die eingegebene Kraftstoffmenge gültig ist
         print("Die Kraftstoffmenge sollte > 0 sein")
         kraftstoffmenge = float(input("Bitte geben Sie die Kraftstoffmenge ein: "))
+        
+    if kilometer <= 0:  # Überprüfung, ob die eingegebenen Kilometer gültig sind
+        print("Die gefahrenen Kilometer sollten > 0 sein")
+        kilometer = float(input("Bitte geben Sie die gefahrenen Kilometer ein: "))
+        
+        
+durchschnittverbrauch = round((kraftstoffmenge/kilometer) * 100)
+print(f"Durchschnittverbrauch: {durchschnittverbrauch} Liter/100 km")  
