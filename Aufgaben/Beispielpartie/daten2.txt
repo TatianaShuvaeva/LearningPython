@@ -1,12 +1,5 @@
 [Event "IBM Kasparov2 vs. Deep Blue Rematch2"]
 [Site "New York2, NY USA2"]
-[Date "1998.05.11"]
-[Round "7"]
-[White "Deep Blue2"]
-[Black "Kasparov2, Garry2"]
-[Opening "Caro-Kann2: 4...Nd7"]
-[ECO "B18"]
-[Result "1-1"]
 
 1.e4 c6 2.d4 d5 3.Nc3 dxe4 4.Nxe4 Nd7 5.Ng5 Ngf6 6.Bd3 e6 7.N1f3 h6
 8.Nxe6 Qe7 9.O-O fxe6 10.Bg6+ Kd8 {Kasparow schüttelt kurz den Kopf}
