@@ -7,4 +7,8 @@ print('ordner: ' + ordnerpfad)
 
 liste_file = ('daten.txt', 'daten2.txt')
 for file in liste_file:
-    Bearbeiter.verarbeiten_file(ordnerpfad, file)
+    path_to_file = os.path.join(ordnerpfad, file)
+    print(path_to_file)
+
+    file_input = open(path_to_file)
+    Bearbeiter.verarbeiten_file(file_input)

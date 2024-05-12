@@ -1,19 +1,15 @@
-import os
+from io import TextIOWrapper
 
 
 class Bearbeiter:
-    def verarbeiten_file(ordnerpfad, file):
-        path_to_file = os.path.join(ordnerpfad, file)
-        print(path_to_file)
-
-        file_input = open(path_to_file)
+    def verarbeiten_file(file_input: TextIOWrapper):
+        
         metadaten = {}
         zuege_spiel = []
 
         line_number = 1
         games = ''
-        line_number = 1
-        games = ''
+      
         for line in file_input:
             if line_number < 10:
                 line_neu = line.strip('][\n') #Entfernt man eckige Klammern und Zeilenumbrüche
