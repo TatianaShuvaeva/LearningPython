@@ -1,5 +1,4 @@
-try:
- 
+def rechnen_bmi():
     koerpergewicht = float(input("Bitte geben Sie ihr Körpergewicht in Kilogramm ein: "))
  
     while koerpergewicht <= 0: #Falsche Variable im Struktogramm (Körpergröße)
@@ -25,8 +24,9 @@ try:
         print(f"Ihr BMI Wert beträgt {bmi}. Sie sind übergewichtig")
  
     else: print(f"Ihr BMI Wert beträgt {bmi}. Sie leiden an Adipositas")
- 
- 
+
+try:
+    rechnen_bmi()
  
 except: #Catch funktion gibt es nicht in Phython, wir haben except benutzt.
     print("Keine gültige Eingabe! Bitte einen korrekten Wert eintragen")
