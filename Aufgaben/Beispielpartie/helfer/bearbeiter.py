@@ -8,6 +8,7 @@ class Bearbeiter:
         zuege_spiel = []
 
         games = ''
+        ergebnis_games = ()
         line = file_input.readline()
         while line != '\n':
             line_neu = line.strip('][\n') #Entfernt man eckige Klammern und Zeilenumbrüche
@@ -16,7 +17,7 @@ class Bearbeiter:
             value = line_split[1].strip('"')
             metadaten[key] = value
             line = file_input.readline()          
-        
+    
         while line != '':        
             line = file_input.readline()
             games_ohne = line.strip('\n')  # Entfernt man Zeilenumbrüche
@@ -43,11 +44,6 @@ class Bearbeiter:
                 zuege_spiel.append(igames_element[1]) 
             else:
                 zuege_spiel.append(igames_element[0])
-        
-        print(metadaten)
-        
-        # for element in zuege_spiel:
-        #     print(f"zuege[{zuege_spiel.index(element)}]={element}")
-
-        for idx, element in enumerate(zuege_spiel):  # Zweite bessere Variante 
-            print(f"zuege[{idx}]={element}")
+         
+        ergebnis_games = (metadaten, zuege_spiel)
+        return ergebnis_games

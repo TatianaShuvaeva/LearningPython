@@ -11,4 +11,9 @@ for file in liste_file:
     print(path_to_file)
 
     file_input = open(path_to_file)
-    Bearbeiter.verarbeiten_file(file_input)
+    ergebnis = Bearbeiter.verarbeiten_file(file_input)
+ 
+    metadaten, zuege_spiel = ergebnis
+    print(metadaten)
+    for idx, element in enumerate(zuege_spiel):  # Zweite bessere Variante 
+        print(f"zuege[{idx}]={element}")
