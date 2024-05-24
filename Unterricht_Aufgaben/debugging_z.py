@@ -32,18 +32,18 @@
 # print(z) 
 
 # z = 0
-# while z != 1 or z != 2:
+# while z != 1 or z != 2: # True or False = True
 #     z = int(input("Geben Sie bitte die Zahl ein: "))
     
 
 i = 10
 z = 100
 while i > 0:
-    if i == 0:
+    if i % 2 == 0:
         z -= i
     else:
         z += i
-i -= 1
+    i -= 1
 print(z)
     
     
