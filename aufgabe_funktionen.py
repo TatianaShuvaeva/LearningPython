@@ -1,7 +1,7 @@
 #  Aufgabe 1
 
-def zahl_einlesen():
-    return int(zahl)
+# def zahl_einlesen():
+#     return int(zahl)
     # print(f"Ihre Zahl: {int(zahl)}")
     
 # zahl = float(input("Geben Sie bitte eine Zahl ein: "))
@@ -30,15 +30,43 @@ def zahl_einlesen():
 
 #  Aufgabe 4
 
-def modus_einlesen():
-    return modus
+# def modus_einlesen():
+#     return modus
     # print(f"Sie haben eingegeben {modus}")
 
 # modus = str(input("Geben Sie bitte 'F nach C' - wenn Sie die Temperatur in Celsius umrechnen möchten oder 'C nach F' - wenn Sie die Temperatur in Fahrenheit umrechnen möchten oder: ").lower())
 # modus_einlesen()
 
 
-#  Aufgabe 5   
+#  Aufgabe 5  
+
+# def zahl_einlesen():
+#     return int(zahl) 
+
+# def modus_einlesen():
+#     return modus
+
+# def hauptschleife(modus_einlesen):
+#     if modus_einlesen() == 'f nach c':
+#         print(f"Eingegebene Temperatur {int(zahl)}°F entspricht {int((zahl-32) * 5/9)}°C")
+#     elif modus_einlesen() == 'c nach f': 
+#         print(f"Eingegebene Temperatur {int(zahl)}°C entspricht {int(zahl * 9/5+32)}°F")
+#     else:
+#         print(f"Sie haben falsche Daten {modus} und {zahl} eingegeben. Versuchen Sie es noch einmal")
+
+
+# modus = str(input("Geben Sie bitte 'F nach C' - wenn Sie die Temperatur in Celsius umrechnen möchten oder 'C nach F' - wenn Sie die Temperatur in Fahrenheit umrechnen möchten oder: ").lower())
+# zahl = float(input("Bitte die Temperatur eingeben: "))
+# hauptschleife(modus_einlesen)
+
+
+#  Aufgabe 6
+
+def zahl_einlesen():
+    return int(zahl) 
+
+def modus_einlesen():
+    return modus
 
 def hauptschleife(modus_einlesen):
     if modus_einlesen() == 'f nach c':
@@ -51,4 +79,9 @@ def hauptschleife(modus_einlesen):
 
 modus = str(input("Geben Sie bitte 'F nach C' - wenn Sie die Temperatur in Celsius umrechnen möchten oder 'C nach F' - wenn Sie die Temperatur in Fahrenheit umrechnen möchten oder: ").lower())
 zahl = float(input("Bitte die Temperatur eingeben: "))
-hauptschleife(modus_einlesen)
+zahl_n = int(input("Geben Sie bitte die Zahl_n ein, die die in Aufgabe 5 beschriebene Aufgabe n mal ausführen soll: "))
+count = 0
+
+while count < zahl_n:
+    hauptschleife(modus_einlesen)
+    count += 1
