@@ -2,6 +2,8 @@ kreditkartennummer = '9342571866701996'
 liste_verdoppelung = []
 summe = 0
 quersumme = 0
+differenz = 0
+pruefziffer = 0
 list_ziffern = list(kreditkartennummer)
 for i in range(len(list_ziffern)-2, -1, -2):
     a = int(list_ziffern[i])*2
@@ -26,4 +28,11 @@ for i in liste_verdoppelung:
 summe = summe + quersumme
 print(summe)
 
+kleinere_zahl = summe
+while kleinere_zahl % 10 != 0:
+    kleinere_zahl -= 1
+differenz = summe - kleinere_zahl
+pruefziffer = 10 - differenz
+print(pruefziffer) 
 
+#if pruefziffer == 
