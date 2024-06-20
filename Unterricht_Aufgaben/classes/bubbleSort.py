@@ -21,3 +21,5 @@ assert bubble_sort([2,9,6,3,2,1]) == [1, 2, 2, 3, 6, 9]
 assert bubble_sort([1,0,-1]) == [-1, 0, 1]
 assert bubble_sort([]) == []
 assert bubble_sort([2]) == [2]
+
+# https://www.sortvisualizer.com/bubblesort/ 
