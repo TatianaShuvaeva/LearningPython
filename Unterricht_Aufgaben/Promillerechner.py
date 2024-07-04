@@ -4,12 +4,17 @@ def berechnen_promille(mensch: str, masse: float, volumen: float, alkoholvolumen
     dichte = 0.8
     a = volumen * alkoholvolumenanteil * dichte
 
-    if mensch.lower() == "m":
-        c = round((a/(masse*r_mann)),2)
-    
-    elif mensch.lower() == "f":
-        c = round((a/(masse*r_frau)),2)
-    return c
+#     if mensch.lower() == "m":
+#         c = round((a/(masse*r_mann)),2)
+
+#     elif mensch.lower() == "f":
+#         c = round((a/(masse*r_frau)),2)
+#     return c
+
+    if mensch == "m":
+        return round((a/(masse*r_mann)),2)
+
+    return round((a/(masse*r_frau)),2)
 
 
 mensch = ""
