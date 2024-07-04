@@ -10,12 +10,12 @@
 # i = 1
 # stern = "*"
 # leerzeichen = "1" * höhe
-# while i <= höhe and len(stern) <= :
+# while i <= höhe:
 #     print(f"{leerzeichen}{stern}")
 #     leerzeichen = leerzeichen[:1] + leerzeichen[2:]
 #     stern += "**"
 #     i += 1
-#print(leerzeichen*5+stern[:3]+leerzeichen*5)
+# print(leerzeichen*(höhe-1)+stern[:3])
 
 #  Aufgabe 2
 
@@ -23,14 +23,16 @@ höhe = int(input("Geben Sie bitte die Höhe des Weihnachtsbaum ein (ohne Stamm)
 breite = int(input("Geben Sie bitte die Breite des Weihnachtsbaum ein (ungerade Zahl): "))
 i = 1
 stern = "*"
-leerzeichen = "1" * höhe
+leerzeichen = " " * höhe
 while i <= höhe and len(stern) <= breite:
     print(f"{leerzeichen}{stern}")
     leerzeichen = leerzeichen[:1] + leerzeichen[2:]
     stern += "**"
     i += 1
 
-#print(leerzeichen*5+stern[:3]+leerzeichen*5)
+print(leerzeichen*(höhe-1)+stern[:3])
+
+
 
 # 3 Version mit gerade und ungerade
 
