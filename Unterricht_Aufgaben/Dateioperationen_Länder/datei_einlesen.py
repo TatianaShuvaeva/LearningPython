@@ -1,16 +1,19 @@
 import os
 
-ordnerpfad = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
-path_to_file = os.path.join(ordnerpfad, "Länder.txt")
+def __get_länder_file(path_to_file) -> list[str]:
+    list_länder = []
+    
+    with open(path_to_file, "r") as eingabe_datei:
+        for zeile in eingabe_datei:
+            line_neu = zeile.strip()
+            list_länder.append(line_neu)
 
-try:
-    eingabe_datei = open(path_to_file, "r")
-    for zeile in eingabe_datei:
-        print(zeile, end = "")
-    eingabe_datei.close()
-except FileNotFoundError as err:
-    print("Dateizugriffsfehler", err)
-    exit(99)
-except:
-    print("sonstige Dateifehler")
-    exit(100)
+        return list_länder
+
+
+def get_länder() -> list[str]:
+    ordnerpfad = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
+    path_to_file = os.path.join(ordnerpfad, "Länder.txt")
+    länder = __get_länder_file(path_to_file) 
+    return länder    
+    
