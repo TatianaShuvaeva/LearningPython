@@ -14,7 +14,7 @@ def erstellen_länder_hauptstädte() -> dict[str, str]:
     return länder_hauptstädte
 
 # länder_hauptstädte = erstellen_länder_hauptstädte()
-länder_hauptstädte = {"Italien":"Rom", "Frankreich":"Paris", "Spanien":"Madrid", "Belgien":"Brüssel"}
+länder_hauptstädte = {"Italien":"Rom", "Frankreich":"Paris", "Spanien":"Madrid", "Belgien":"Bruessel"}
 #print(länder_hauptstädte)
 
 # Aufgabe 3
