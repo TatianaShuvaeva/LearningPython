@@ -2,20 +2,20 @@ import os
 from datei_einlesen import get_länder
 
 # Aufgabe 2
-def erstellen_länder_hauptstädte() -> dict[str, str]:
-    länder_hauptstädte = {}
+# def erstellen_länder_hauptstädte() -> dict[str, str]:
+#     länder_hauptstädte = {}
 
-    länder = get_länder()
-    for land in länder:
-        hauptstadt = input(f"Geben Sie bitte die Hauptstadt von {land} ein: ")
+#     länder = get_länder()
+#     for land in länder:
+#         hauptstadt = input(f"Geben Sie bitte die Hauptstadt von {land} ein: ")
     
-    # TODO Überprüfen, dass hauptstadt string hat
-    länder_hauptstädte[land] = hauptstadt.strip()
-    return länder_hauptstädte
+#         # TODO Überprüfen, dass hauptstadt nicht string ist
+#         länder_hauptstädte[land] = hauptstadt.strip()
+#     return länder_hauptstädte
 
 # länder_hauptstädte = erstellen_länder_hauptstädte()
 länder_hauptstädte = {"Italien":"Rom", "Frankreich":"Paris", "Spanien":"Madrid", "Belgien":"Bruessel"}
-#print(länder_hauptstädte)
+# print(länder_hauptstädte)
 
 # Aufgabe 3
 
@@ -30,7 +30,7 @@ while anzahl < anzahl_länder:
     else:
         länder_hauptstädte[landneu] = hauptstadtneu.strip()
         anzahl +=1
-# print(länder_hauptstädte)
+print(länder_hauptstädte)
 
 
 ordnerpfad = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
