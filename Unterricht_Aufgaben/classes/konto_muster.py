@@ -1,10 +1,11 @@
 # Definition der Klasse Konto
 
 class Konto:
-    def __init__(self, kontonummer):
-    self.ktoNr = kontonummer
-    self.inhaber = inhaber
-    self.ktoStand = saldo
+    def __init__(self, kontonummer, inhaber, saldo):
+        self.ktoNr = kontonummer
+        self.inhaber = inhaber
+        self.ktoStand = saldo
+
 konto_hans = Konto("987654", "Hans", 100)
 
 print(type(konto_hans))
