@@ -7,7 +7,7 @@ class Konto:
 
     def einzahlen(self, betrag):
         if betrag <= 0:
-            print("ungültige Angabe")
+            print("Ungültige Angabe")
         else:
             self.ktoStand += betrag
 
