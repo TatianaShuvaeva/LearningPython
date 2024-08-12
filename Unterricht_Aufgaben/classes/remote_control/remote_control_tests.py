@@ -21,6 +21,8 @@ assert rc1.lautstärke == 10, '10 - max Lautstärke'
 
 rc2 = RemoteControl(5)
 rc2.minus_lautstärke()
+rc2.minus_lautstärke()
+rc2.minus_lautstärke()
 assert rc2.lautstärke == 0, 'Lautstärke soll man 0 sein'
 
 rc2.plus_lautstärke()

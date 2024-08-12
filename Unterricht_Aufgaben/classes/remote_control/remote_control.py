@@ -1,4 +1,7 @@
+# Definition der Klasse RemoteControl
 class RemoteControl:
+    
+    # Definition der Konstruktormethode
     def __init__(self, anzahl_programme) -> None:
         if anzahl_programme > 10:
             raise Exception("Ungültige Angabe")
@@ -28,14 +31,14 @@ class RemoteControl:
         else:
             self.aktuelles_programm = self.programm[0]
     
-    
+    # Definition der Methode zum Erhöhen der Lautstärke
     def plus_lautstärke(self):
         if self.lautstärke >=10:
             return
 
         self.lautstärke += 1
     
-
+    # Definition der Methode zum Verringern der Lautstärke
     def minus_lautstärke(self):
         if self.lautstärke <=0:
             return
