@@ -6,9 +6,9 @@ class RemoteControl:
         if anzahl_programme > 10:
             raise Exception("Ungültige Angabe")
         
-        self.lautstärke = 0
+        self.__lautstärke = 0
         self.aktuelles_programm: str = None
-
+        
         list_programm = ["ARD", "ZDF", "RBB", "RTL", "KiKA", "PHOENIX", "NTV", "PRO7", "KABEL1", "WDR"]
         self.programm = list_programm[:anzahl_programme]       
 
@@ -17,33 +17,35 @@ class RemoteControl:
     def setProgramName(self, name: str):
         existiert = name in self.programm
         if existiert == False:
-            raise Exception("Ungültige Angabe")
+            raise Exception("Es gibt keinen solchen Programmnamen")
            
         self.aktuelles_programm = name
         
     def nextProgram(self):
-        unsere_programmliste = self.programm 
-     
-        index_programm = unsere_programmliste.index(self.aktuelles_programm)
+        index_programm = self.programm.index(self.aktuelles_programm)
         if index_programm < self.anzahl - 1:
             index_programm += 1
             self.aktuelles_programm = self.programm[index_programm]
-        else:
-            self.aktuelles_programm = self.programm[0]
+            return
+
+        self.aktuelles_programm = self.programm[0] 
     
     # Definition der Methode zum Erhöhen der Lautstärke
     def plus_lautstärke(self):
-        if self.lautstärke >=10:
+        if self.__lautstärke >=10:
             return
 
-        self.lautstärke += 1
+        self.__lautstärke += 1
     
     # Definition der Methode zum Verringern der Lautstärke
     def minus_lautstärke(self):
-        if self.lautstärke <=0:
+        if self.__lautstärke <=0:
             return
 
-        self.lautstärke -= 1
+        self.__lautstärke -= 1
+        
+    def get_lautstärke(self) -> int:
+        return self.__lautstärke
     
     def printProgram (self):
         print(self.aktuelles_programm)   
