@@ -20,4 +20,5 @@ print(rc1.get_lautstärke())
 rc1.__lautstärke = 100
 rc1.plus_lautstärke()
 print(rc1.get_lautstärke())
+print(rc1)
 

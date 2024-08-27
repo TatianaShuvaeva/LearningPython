@@ -47,6 +47,8 @@ class RemoteControl:
     def get_lautstärke(self) -> int:
         return self.__lautstärke
     
-    def printProgram (self):
-        print(self.aktuelles_programm)   
+    def __str__(self) -> str:
+        return (f"Nr: {self.programm.index(self.aktuelles_programm)+1:>2}  "
+                f"Name: {self.aktuelles_programm:>6}  "
+                f"Lautstärke: {self.__lautstärke:>5}  ")  
     
