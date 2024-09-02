@@ -1,15 +1,20 @@
-from class_fahrzeug import Fahrzeug, PKW, LKW
+from fahrzeug import Fahrzeug
+from lkw import LKW
+from pkw import PKW
 
 
 f = Fahrzeug("BMW", 2022, 10000, "schwarz")
 print(f)
 
 
-pkw = PKW("Mercedes-Benz", 2021, 18000,"weiß", 550)
-#pkw.get_kofferraumvolumen(580)
+pkw = PKW("Mercedes-Benz", 2021, 18000, "weiß", 550)
+# pkw.get_kofferraumvolumen(580)
+# print(pkw._kofferraumvolumen)
+
+# pkw._kofferraumvolumen = 600
 print(pkw)
 
 
 lkw = LKW("Volvo", 2020, 23000, "grau", 15)
-#lkw.get_gewichtklasse(12)
+# # lkw.get_gewichtklasse(12)
 print(lkw)
