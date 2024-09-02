@@ -13,8 +13,13 @@ pkw = PKW("Mercedes-Benz", 2021, 18000, "weiß", 550)
 
 # pkw._kofferraumvolumen = 600
 print(pkw)
-
+print(pkw.get_farbe())
 
 lkw = LKW("Volvo", 2020, 23000, "grau", 15)
 # # lkw.get_gewichtklasse(12)
 print(lkw)
+
+
+f2 = Fahrzeug("BMW", 2022, -12, "schwarz")
+f2.set_km_stand(-11)
+print(f2.get_km_stand())
