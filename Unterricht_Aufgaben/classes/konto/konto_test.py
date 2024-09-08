@@ -21,16 +21,41 @@ def test_richtiger_umsatz_set():
     assert konto.umsatz == 200
 
 
-def test_eq_true():
-    konto1 = Konto("Schmidt", 12345678911, 5000.67, 200)
-    konto2 = Konto("Müller", 12345678910, 5000.67, 200)
+def test_eq_kontonummer_false():
+    konto1 = Konto("Müller", 21345678910, 250.67, 200)
+    konto2 = Konto("Müller", 12345678911, 250.67, 200)
+    
+    assert konto1 != konto2
 
+def test_eq_inhaber_false():
+    konto1 = Konto("Schmidt", 12345678911, 250.67, 200)
+    konto2 = Konto("Müller", 12345678911, 250.67, 200)
+   
+    assert konto1 != konto2
+
+def test_eq_kontostant_false():
+    konto1 = Konto("Schmidt", 12345678911, 250.67, 150)
+    konto2 = Konto("Schmidt", 12345678911, 200.67, 150)
+    
+    assert konto1 != konto2
+
+def test_eq_umsatz_false():
+    konto1 = Konto("Schmidt", 12345678911, 200.67, 150)
+    konto2 = Konto("Schmidt", 12345678911, 200.67, 150)
+    konto1.umsatz = 1
+   
+    assert konto1 != konto2
+
+def test_eq_inhaber_true():
+    konto1 = Konto("Schmidt", 12345678911, 5000.67, 200)
+    konto2 = Konto("schMidt", 12345678911, 5000.67, 200)
+    
     assert konto1 == konto2
 
 
-def test_eq_true2():
+def test_eq_umsatz_true():
     konto1 = Konto("Schmidt", 12345678911, 250.67, 200)
-    konto2 = Konto("Henkel", 12345678912, 200.67, 150)
+    konto2 = Konto("Schmidt", 12345678911, 200.67, 200)
     konto1.umsatz = 100
     konto2.umsatz = 50
 
