@@ -1,0 +1,1 @@
+from .fakultaeten_fibonacci import erstellen_fakultaeten
