@@ -1,57 +1,45 @@
 from tkinter import *
 from operatorüberladung_bruche import Bruch
 
-def btnplusklick():
-    eingabe1 = entbruch1.get()
-    zahl = eingabe1.split("/")
+def eingeben_bruch(eingabe):
+    zahl = eingabe.split("/")
     zahler = int(zahl[0])
     nenner = int(zahl[1])
-    bruch1 = Bruch(zahler, nenner)
-    
+    return Bruch(zahler, nenner)
 
-    eingabe2 = entbruch2.get()
-    zahl = eingabe2.split("/")
-    zahler = int(zahl[0])
-    nenner = int(zahl[1])
-    bruch2 = Bruch(zahler, nenner)
-   
+def btnplusklick():
+    bruch1 = eingeben_bruch(entbruch1.get())
+     
+    bruch2 = eingeben_bruch(entbruch2.get())
+       
     # lblergebnis.config(text=str(ergebnis))
     ergebnis = bruch1 + bruch2
     lblergebnis.config(text = str(ergebnis))
     
 
 def btnminusklick():
-    eingabe1 = entbruch1.get()
-    zahl = eingabe1.split("/")
-    zahler = int(zahl[0])
-    nenner = int(zahl[1])
-    bruch1 = Bruch(zahler, nenner)
-    
-
-    eingabe2 = entbruch2.get()
-    zahl = eingabe2.split("/")
-    zahler = int(zahl[0])
-    nenner = int(zahl[1])
-    bruch2 = Bruch(zahler, nenner)
+    bruch1 = eingeben_bruch(entbruch1.get())
+     
+    bruch2 = eingeben_bruch(entbruch2.get())
    
-    # lblergebnis.config(text=str(ergebnis))
     ergebnis = bruch1 - bruch2
     lblergebnis.config(text = str(ergebnis))
     
 def btnmalklick():
-    eingabe1 = entbruch1.get()
-
-    eingabe2 = entbruch2.get()
-
-    ergebnis = int(eingabe1) * int(eingabe2)
+    bruch1 = eingeben_bruch(entbruch1.get())
+     
+    bruch2 = eingeben_bruch(entbruch2.get())
+   
+    ergebnis = bruch1 * bruch2
     lblergebnis.config(text=str(ergebnis))
 def btngeteiltklick():
-    eingabe1 = entbruch1.get()
-
-    eingabe2 = entbruch2.get()
-
-    ergebnis = int(eingabe1) / int(eingabe2)
+    bruch1 = eingeben_bruch(entbruch1.get())
+     
+    bruch2 = eingeben_bruch(entbruch2.get())
+   
+    ergebnis = bruch1/bruch2
     lblergebnis.config(text=str(ergebnis))
+
 
 # Fenster definieren
 rechner = Tk()
