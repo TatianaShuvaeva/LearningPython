@@ -9,9 +9,37 @@ class weitereElemente(Tk):
         self.geometry("350x400")
 
         # weitere Steuerelemente erzeugen
-        self.erstellen_weiterer_elemente()
+        self._erstellen_weiterer_elemente()
+        self._berechnen_temperatur()
+       
+    def _berechnen_temperatur(self):
+        pad_x = 120
+        self.btn_c_nach_f = Button(self, text ="F", bg="lightpink", command=self.btn_c_nach_f_klick)
+        self.btn_c_nach_f.grid(row=1, column=2, padx=pad_x, pady=5)
+         
+         # Eingabefeld
+        self.ent_temperatur = Entry(self, bg="white", width=8)
+        self.ent_temperatur.grid(row=2, column=2, padx=pad_x, pady=5)
+        
+        self.btn_f_nach_c = Button(self, text ="C", bg="lightgreen", command=self.btn_f_nach_c_klick)
+        self.btn_f_nach_c.grid(row=3, column=2, padx=pad_x, pady=5)
 
-    def erstellen_weiterer_elemente(self):
+    def btn_c_nach_f_klick(self):
+        value = float(self.ent_temperatur.get())
+        calc = value* 9/5+32
+        self.insert_temperatur(calc)
+        
+    def insert_temperatur(self,calc:float):
+        self.ent_temperatur.delete(0, 'end')
+        self.ent_temperatur.insert(0, str(calc))
+    
+    def btn_f_nach_c_klick(self):
+        value = float(self.ent_temperatur.get())
+        calc = (value-32) * 5/9
+        self.insert_temperatur(calc)
+    
+
+    def _erstellen_weiterer_elemente(self):
         # Label mit dem Text Test
         self.lbl_test = Label(self, bg="silver", text="Test", width=8)
         self.lbl_test.grid(row=1, column=1, padx=5, pady=5)
@@ -55,3 +83,20 @@ class weitereElemente(Tk):
                 self.btn_farbe.config(bg="gold")
 
         self.lbl_test.config(text=self.var_ausgewaehlte_stadt.get())
+    
+    
+    
+    # def btn_f_nach_c():
+    #     bruch1 = eingeben_bruch(entbruch1.get())
+        
+    #     bruch2 = eingeben_bruch(entbruch2.get())
+        
+    #     # lblergebnis.config(text=str(ergebnis))
+    #     ergebnis = bruch1 + bruch2
+    #     lblergebnis.config(text = str(ergebnis))    
+    #     def f_nach_c(self):
+            
+    #         # Button zum Einfärben des Labels lbl_test
+    #         self.btn_farbe = Button(
+    #             self, text="Farbe", bg="gold", command=self.btn_farbe_klick)
+    #         self.btn_farbe.grid(row=3, column=1, padx=5, pady=5)
