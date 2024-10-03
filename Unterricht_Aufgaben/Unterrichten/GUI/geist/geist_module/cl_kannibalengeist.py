@@ -7,7 +7,7 @@ class Kannibalengeist(Geist):
         super(Kannibalengeist, self).__init__(name, groesse)
         
     def spucken(self):
-        print(f"Kannibalengeist: {self.name} schaltet das Licht aus und hinterlässt alles in Dunkelheit.")
+        return (f"schaltet das Licht aus und hinterlässt alles in Dunkelheit.")
 
     def fressen(self, anderer_geist: Geist):
         self.groesse = self.groesse + anderer_geist.groesse

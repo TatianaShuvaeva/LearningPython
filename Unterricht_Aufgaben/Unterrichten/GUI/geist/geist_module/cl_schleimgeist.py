@@ -5,9 +5,9 @@ class Schleimgeist(Geist):
 
     def __init__(self, name, groesse):
         super().__init__(name, groesse)
-        
+
     def spucken(self):
-        print (f"Schleimgeist: {self.name} raschelt mit alten Papieren und macht gruselige Geräusche.")
+        return (f"raschelt mit alten Papieren und macht gruselige Geräusche.")
 
     def schleimen(self):
         print(f"Schleimgeist: {self.name} : schleimt")
