@@ -1,4 +1,4 @@
-from cl_geist import Geist
+from Unterricht_Aufgaben.Unterrichten.GUI.geist.geist_module.cl_geist import Geist
 
 
 class Schleimgeist(Geist):
