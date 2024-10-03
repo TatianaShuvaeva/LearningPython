@@ -1,5 +1,6 @@
-from weitereElemente import *
+from Unterricht_Aufgaben.Unterrichten.GUI.weitereElemente import GuiWeitereElemente
 
-app = weitereElemente()
+
+app = GuiWeitereElemente()
 
 app.mainloop()
