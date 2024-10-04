@@ -39,7 +39,7 @@ class GeistElemente(Tk):
     def erstellen_geist(self, geist: Geist):
         
         def klick_spuken():
-            ergebnis = geist.spucken()
+            ergebnis = geist.spuken()
             self.entry.delete(0, 'end')
             self.entry.insert(0, ergebnis)
 

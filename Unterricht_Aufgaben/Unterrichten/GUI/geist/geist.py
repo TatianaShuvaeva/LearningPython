@@ -14,10 +14,10 @@ k2 = Kannibalengeist("fat_manic", 7)
 
 print(k)
 
-g.spucken()
-k.spucken()
-k2.spucken()
-s.spucken()
+g.spuken()
+k.spuken()
+k2.spuken()
+s.spuken()
 print(k2)
 print(s)
 

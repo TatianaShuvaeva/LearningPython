@@ -3,7 +3,7 @@ class Geist:
         self.name= name
         self.groesse= groesse
 
-    def spucken(self):
+    def spuken(self):
         return (f"sorgt für eine unheimliche Kälte im Raum.")
 
     def __str__(self):
