@@ -1,7 +1,8 @@
 from Unterricht_Aufgaben.Unterrichten.GUI.geist.geist_module.cl_geist import Geist
 from Unterricht_Aufgaben.Unterrichten.GUI.geist.geist_module.cl_schleimgeist import Schleimgeist
 from Unterricht_Aufgaben.Unterrichten.GUI.geist.geist_module.cl_kannibalengeist import Kannibalengeist
-from Unterricht_Aufgaben.Unterrichten.GUI.geist.geist_module.cl_geisterjager import Geisterjaeger
+from Unterricht_Aufgaben.Unterrichten.GUI.geist.geist_module.cl_geisterjaeger import Geisterjaeger
+from Unterricht_Aufgaben.Unterrichten.GUI.geist.geist_module.cl_geisterjunge import Geisterjunge
 
 
 
@@ -13,24 +14,25 @@ print(slimey)
 
 bloodied_squire = Kannibalengeist("bloodied_squire", 10)
 fat_manic = Kannibalengeist("fat_manic", 7)
-
+geisterjunge = Geisterjunge("geisterjunge", 3)
 geisterjäger = Geisterjaeger("Dr. Peter Venkman")
+
+# Geisterjäger hat screamer nicht gefangen
+print('----')
+print(f"Sichtbarkeitsstatus von screamer: {screamer.sichtbar}")
 print(geisterjäger)
-screamer.sichtbar = True
-print(f"gefangen: {geisterjäger.geist_fangen(screamer)}")
+geisterjäger.geist_fangen(screamer)
 print(geisterjäger)
-# print(bloodied_squire)
-
-# screamer.spuken()
-# bloodied_squire.spuken()
-# fat_manic.spuken()
-# slimey.spuken()
-# print(fat_manic)
-# print(slimey)
-
-# fat_manic.fressen(slimey)
 
 
 
+# Geisterjäger hat fat_manic gefangen
+print('----')
 
+print(f"Sichtbarkeitsstatus von fat_manic: {fat_manic.sichtbar}")
+geisterjunge.sichtbar_machen(fat_manic)
+print(f"Sichtbarkeitsstatus von fat_manic: {fat_manic.sichtbar}")
 
+print(geisterjäger)
+geisterjäger.geist_fangen(fat_manic)
+print(geisterjäger)
