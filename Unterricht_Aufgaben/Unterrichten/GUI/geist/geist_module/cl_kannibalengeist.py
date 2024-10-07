@@ -3,8 +3,8 @@ from Unterricht_Aufgaben.Unterrichten.GUI.geist.geist_module.cl_geist import Gei
 
 class Kannibalengeist(Geist):
 
-    def __init__(self, name, groesse, sichtbar, gefangen):
-        super(Kannibalengeist, self).__init__(name, groesse, sichtbar, gefangen)
+    def __init__(self, name, groesse):
+        super(Kannibalengeist, self).__init__(name, groesse)
         
     def spuken(self):
         return (f"schaltet das Licht aus und hinterlässt alles in Dunkelheit.")

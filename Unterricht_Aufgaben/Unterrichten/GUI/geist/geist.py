@@ -5,18 +5,20 @@ from Unterricht_Aufgaben.Unterrichten.GUI.geist.geist_module.cl_geisterjager imp
 
 
 
-screamer = Geist("screamer", 3, False, False)
+screamer = Geist("screamer", 3)
 print(screamer)
 
-slimey = Schleimgeist("slimey", 1, False, False)
+slimey = Schleimgeist("slimey", 1)
 print(slimey)
 
-bloodied_squire = Kannibalengeist("bloodied_squire", 10, False, False)
-fat_manic = Kannibalengeist("fat_manic", 7, False, False)
+bloodied_squire = Kannibalengeist("bloodied_squire", 10)
+fat_manic = Kannibalengeist("fat_manic", 7)
 
-geisterjäger = Geisterjaeger("geisterjäger", 7, False, False)
-geisterjäger.geist_fangen(screamer)
-
+geisterjäger = Geisterjaeger("Dr. Peter Venkman")
+print(geisterjäger)
+screamer.sichtbar = True
+print(f"gefangen: {geisterjäger.geist_fangen(screamer)}")
+print(geisterjäger)
 # print(bloodied_squire)
 
 # screamer.spuken()
