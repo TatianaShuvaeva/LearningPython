@@ -3,8 +3,8 @@ from Unterricht_Aufgaben.Unterrichten.GUI.geist.geist_module.cl_geist import Gei
 
 class Schleimgeist(Geist):
 
-    def __init__(self, name, groesse):
-        super().__init__(name, groesse)
+    def __init__(self, name, groesse, sichtbar, gefangen):
+        super().__init__(name, groesse, sichtbar, gefangen)
 
     def spuken(self):
         return (f"raschelt mit alten Papieren und macht gruselige Geräusche.")

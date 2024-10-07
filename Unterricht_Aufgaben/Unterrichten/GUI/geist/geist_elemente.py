@@ -12,10 +12,10 @@ class GeistElemente(Tk):
         self.title("GUI mit Geisten")
         self.geometry("500x400")
 
-        self._screamer = Geist("screamer", 3)
-        self._slimey = Schleimgeist("slimey", 1)
-        self._bloodied_squire = Kannibalengeist("bloodied_squire", 10)
-        self._fat_manic = Kannibalengeist("fat_manic", 7)
+        self._screamer = Geist("screamer", 3, False, False)
+        self._slimey = Schleimgeist("slimey", 1, False, False)
+        self._bloodied_squire = Kannibalengeist("bloodied_squire", 10, False, False)
+        self._fat_manic = Kannibalengeist("fat_manic", 7, False, False)
 
         # weitere Steuerelemente erzeugen
         self.auswaehlen_geist()
