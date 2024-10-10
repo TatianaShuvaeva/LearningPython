@@ -5,7 +5,7 @@ class GuiWeitereElemente(Tk):
         super().__init__()
 
         self.title("GUI mit weiteren ELementen")
-        self.geometry("350x400")
+        self.geometry("650x400")
 
         # weitere Steuerelemente erzeugen
         self.erstellen_weiterer_elemente()
@@ -30,7 +30,7 @@ class GuiWeitereElemente(Tk):
         self.chk_farbe = Checkbutton(self, text="Farbe ändern", variable=self.var_chk_button)
         self.chk_farbe.grid(row=4, column=1, padx=5, pady=5)
 
-        self.staedte_liste = ["Berlin", "Hamburg", "München"]
+        self.staedte_liste = ["Berlin", "Hamburg", "München", "Köln am Rhein", "Frankfurt"]
         # Variable für Radiobutton-Auswahl
         self.var_ausgewaehlte_stadt = StringVar(value="Berlin")
         # Radiobutton
@@ -45,16 +45,22 @@ class GuiWeitereElemente(Tk):
 
         self.lb["selectmode"] = "extended"
         self.lb.insert("end", *self.staedte_liste)
-        self.lb.bind("<<ListboxSelect>>", self.lb_auswahl)
 
         # Textbox
-        self.tb = Text(self, bg="bisque", height=7, width=25)
+        self.tb = Text(self, bg="bisque", height=7, width=50)
         self.tb.grid(row=4, column=2, padx=5, pady=5, rowspan=3)
 
         # Scrollbar
         self.sb_tb = Scrollbar(self, command=self.tb.yview)
-        self.sb_tb.grid(row=4, column=3, padx=5, pady=5, rowspan=3)
+        self.sb_tb.grid(row=4, column=3, padx=5, pady=5, rowspan=3, sticky="ns")
         self.tb.config(yscrollcommand=self.sb_tb.set)
+
+        # Button zum Einfärben des Labels lbl_test
+        self.btn_txt_loeschen = Button(self, text="Text löschen", bg="lightgreen",
+                                       command=self.btn_text_loeschen_klick)
+        self.btn_txt_loeschen.grid(row=8, column=2, padx=5, pady=5)
+
+
     def btn_farbe_klick(self):
         print(f"{self.var_chk_button.get()=}")
         print(f"{self.var_ausgewaehlte_stadt.get()=}")
@@ -69,10 +75,12 @@ class GuiWeitereElemente(Tk):
 
         self.lbl_test.config(text=self.var_ausgewaehlte_stadt.get())
 
-    def lb_auswahl(self, event):
         auswahl = ", ".join(self.lb.get(i) for i in self.lb.curselection())
         print(f"{auswahl=}")
         self.tb.insert("end", auswahl+"\n")
+
+    def btn_text_loeschen_klick(self):
+        self.tb.delete(1.0,END)
        
     # def _berechnen_temperatur(self):
     #     pad_x = 120
