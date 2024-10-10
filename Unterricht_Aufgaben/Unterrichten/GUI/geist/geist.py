@@ -14,7 +14,7 @@ print(slimey)
 
 bloodied_squire = Kannibalengeist("bloodied_squire", 10)
 fat_manic = Kannibalengeist("fat_manic", 7)
-geisterjunge = Geisterjunge("geisterjunge", 3)
+geisterjunge = Geisterjunge("Geisterjunge", 3)
 geisterjäger = Geisterjaeger("Dr. Peter Venkman")
 
 # Geisterjäger hat screamer nicht gefangen
@@ -35,4 +35,17 @@ print(f"Sichtbarkeitsstatus von fat_manic: {fat_manic.sichtbar}")
 
 print(geisterjäger)
 geisterjäger.geist_fangen(fat_manic)
+print(geisterjäger)
+
+# Die  Geistersichtbarkeit erlischt
+
+print('----')
+
+print(f"Sichtbarkeitsstatus von bloodied_squire: {bloodied_squire.sichtbar}")
+geisterjunge.sichtbar_machen(bloodied_squire)
+print(f"Sichtbarkeitsstatus von bloodied_squire: {bloodied_squire.sichtbar}")
+
+print(geisterjäger)
+geisterjäger.geist_fangen(bloodied_squire)
+print(f"Sichtbarkeitsstatus von bloodied_squire: {bloodied_squire.sichtbar}")
 print(geisterjäger)
