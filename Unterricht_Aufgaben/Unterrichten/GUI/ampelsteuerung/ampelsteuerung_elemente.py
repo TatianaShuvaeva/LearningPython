@@ -12,16 +12,19 @@ class AmpelElemente(Tk):
 
         self._ampel: AutoAmpel = AutoAmpel()
         self.wechseln_bild()
-        self.auswaehlen_weiter()
+        self.erstellen_buttons()
 
-    def auswaehlen_weiter(self):
+    def erstellen_buttons(self):
         self.btn_weiter = Button(self, text="Weiter", bg="silver", command=self._btn_weiter_klick, width=12)
         self.btn_weiter.grid(row=1, column=1, padx=40, pady=45)
+        
+        self.btn_exit = Button(self, text="Exit", bg="silver", command=self._btn_exit_klick, width=12)
+        self.btn_exit.grid(row=2, column=1, padx=40, pady=45)
 
     def _btn_weiter_klick(self):
         self._ampel.umschalten()
         self.wechseln_bild()
-        self.auswaehlen_weiter()
+        self.erstellen_buttons()
 
     def wechseln_bild(self):
         if self._ampel.farbe == "rot":
@@ -43,7 +46,9 @@ class AmpelElemente(Tk):
         self.img = self.img.resize((450, 350))
         self.bild = ImageTk.PhotoImage(self.img)
         Label(self, image=self.bild).place(x=0, y=0)  # type: ignore
-
+        
+    def _btn_exit_klick(self):
+        self.quit()
 
 ampel = AmpelElemente()
 ampel.mainloop()
