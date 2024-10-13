@@ -1,5 +1,5 @@
-from tkinter import *
-from cl_ampelsteuerung import Ampel, AutoAmpel
+from tkinter import Button, Tk, Label
+from cl_ampelsteuerung import AutoAmpel
 from PIL import Image, ImageTk
 
 
@@ -42,7 +42,7 @@ class AmpelElemente(Tk):
         self.img = Image.open(dateiname)
         self.img = self.img.resize((450, 350))
         self.bild = ImageTk.PhotoImage(self.img)
-        Label(self, image=self.bild).place(x=0, y=0)
+        Label(self, image=self.bild).place(x=0, y=0)  # type: ignore
 
 
 ampel = AmpelElemente()
