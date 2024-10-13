@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 from typing import List
 
 
-class Ampeln(ABC):
+class Ampel(ABC):
 
     @abstractmethod
     def umschalten(self):
@@ -14,9 +14,9 @@ class Ampeln(ABC):
         pass
 
 
-class AutoAmpel(Ampeln):
+class AutoAmpel(Ampel):
     def __init__(self):
-        self.farben: List[str] = ["rot", "rot-gelb", "gelb", "grün"]
+        self.farben: List[str] = ["rot", "rot-gelb", "gelb", "gruen"]
         self._index: int = 0
 
     def umschalten(self):
@@ -30,7 +30,7 @@ class AutoAmpel(Ampeln):
         return farbe
 
 
-class FussgaengerAmpel(Ampeln):
+class FussgaengerAmpel(Ampel):
     def __init__(self):
         self.farben: List[str] = ["rot", "grün"]
         self._index: int = 0

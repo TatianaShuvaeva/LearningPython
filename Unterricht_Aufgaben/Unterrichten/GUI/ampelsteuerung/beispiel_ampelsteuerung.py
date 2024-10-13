@@ -1,4 +1,4 @@
-from Unterricht_Aufgaben.Unterrichten.GUI.ampelsteuerung.ampelsteuerung import Ampeln, AutoAmpel, FussgaengerAmpel
+from Unterricht_Aufgaben.Unterrichten.GUI.ampelsteuerung.cl_ampelsteuerung import Ampel, AutoAmpel, FussgaengerAmpel
 
 autoampel = AutoAmpel()
 fussgaengerampel = FussgaengerAmpel()
