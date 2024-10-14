@@ -8,7 +8,7 @@ class AmpelElemente(Tk):
         super().__init__()
 
         self.title("tk")
-        self.geometry("500x350")
+        self.geometry("448x250")
 
         self._ampel: FussgaengerAmpel = FussgaengerAmpel()
         self.wechseln_bild()
@@ -37,7 +37,7 @@ class AmpelElemente(Tk):
             raise Exception("Farbe ist undefiniert")
 
         self.img = Image.open(dateiname)
-        self.img = self.img.resize((500, 350))
+        self.img = self.img.resize((448, 250))
         self.bild = ImageTk.PhotoImage(self.img)
         Label(self, image=self.bild).place(x=0, y=0)  # type: ignore
         
