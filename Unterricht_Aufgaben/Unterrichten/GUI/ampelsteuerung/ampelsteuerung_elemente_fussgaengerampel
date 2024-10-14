@@ -1,5 +1,5 @@
 from tkinter import Button, Tk, Label 
-from Unterricht_Aufgaben.Unterrichten.GUI.ampelsteuerung.cl_ampelsteuerung import AutoAmpel
+from Unterricht_Aufgaben.Unterrichten.GUI.ampelsteuerung.cl_ampelsteuerung import FussgaengerAmpel
 from PIL import Image, ImageTk
 
 
@@ -8,9 +8,9 @@ class AmpelElemente(Tk):
         super().__init__()
 
         self.title("tk")
-        self.geometry("450x350")
+        self.geometry("500x350")
 
-        self._ampel: AutoAmpel = AutoAmpel()
+        self._ampel: FussgaengerAmpel = FussgaengerAmpel()
         self.wechseln_bild()
         self.erstellen_buttons()
 
@@ -28,22 +28,16 @@ class AmpelElemente(Tk):
 
     def wechseln_bild(self):
         if self._ampel.farbe == "rot":
-            dateiname = "strassenampel.png"
-
-        elif self._ampel.farbe == "rot-gelb":
-            dateiname = "strassenampel_rot_gelb.png"
-
-        elif self._ampel.farbe == "gelb":
-            dateiname = "strassenampel_gelb.png"
-
+            dateiname = "fussgaengerampel_rot.png"
+            
         elif self._ampel.farbe == "gruen":
-            dateiname = "strassenampel_gruen.png"
+            dateiname = "fussgaengerampel_gruen.png"
         
         else:
             raise Exception("Farbe ist undefiniert")
 
         self.img = Image.open(dateiname)
-        self.img = self.img.resize((450, 350))
+        self.img = self.img.resize((500, 350))
         self.bild = ImageTk.PhotoImage(self.img)
         Label(self, image=self.bild).place(x=0, y=0)  # type: ignore
         

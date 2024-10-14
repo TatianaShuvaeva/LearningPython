@@ -32,7 +32,7 @@ class AutoAmpel(Ampel):
 
 class FussgaengerAmpel(Ampel):
     def __init__(self):
-        self.farben: List[str] = ["rot", "grün"]
+        self.farben: List[str] = ["rot", "gruen"]
         self._index: int = 0
 
     def umschalten(self):
