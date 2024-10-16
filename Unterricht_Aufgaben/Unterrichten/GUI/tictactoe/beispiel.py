@@ -7,7 +7,7 @@ tic_tac_toe = TicTacToe()
 result = tic_tac_toe.get()
 
 def print_tic_tac_toe_feld(result):
-    for i, arr in enumerate(result):
+    for arr in result:
         row = ''
         for elem in arr:
             row += elem + ' '
