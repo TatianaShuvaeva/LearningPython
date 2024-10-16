@@ -11,16 +11,17 @@ class TicTacToe:
         self.spielfeld.append(['4', '5','6'])
         self.spielfeld.append(['7', '8','9'])
         self.gewinnkombinationen = [[1,2,3], [4,5,6], [7,8,9], [1,4,7], [2,5,8], [3,6,9], [1,5,9], [3,5,7]]
-        self.aktueller_spieler = 'x'
+      
+        self.spielzugnummer = 1
         
     def get(self) -> List[List[str]]:
         return self.spielfeld
     
-    def spieler_wechseln(self):
-        if self.aktueller_spieler == 'x':
-            self.aktueller_spieler = 'o'
-        else:
-            self.aktueller_spieler = 'x'
+    @property
+    def spieler_nummer(self):
+        if self.spielzugnummer %2 == 1:
+            return 1
+        return 2
 
     def set(self, nummer: int) -> None:
         if nummer == 1:
@@ -44,8 +45,15 @@ class TicTacToe:
 
     def _set_feld(self, zeile, spalte):
         
-        if self.spielfeld[zeile][spalte] != "x" and self.spielfeld[zeile][spalte] != "o":
-            self.spielfeld[zeile][spalte] = self.aktueller_spieler
-            self.spieler_wechseln()
-        else:
+        if self.spielfeld[zeile][spalte] == "x" or self.spielfeld[zeile][spalte] == "o":
             raise Exception("Diese Zelle ist bereits gefüllt")
+        
+        zeichnen = None
+        if self.spieler_nummer == 1:
+            
+            zeichnen = "x"
+        else:
+            zeichnen = "o"
+        self.spielfeld[zeile][spalte] = zeichnen
+        self.spielzugnummer += 1
+        

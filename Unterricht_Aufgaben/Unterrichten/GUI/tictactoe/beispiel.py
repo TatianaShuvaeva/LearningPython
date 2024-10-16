@@ -3,22 +3,27 @@ from Unterricht_Aufgaben.Unterrichten.GUI.tictactoe.cl_brett_ttt import TicTacTo
 
 tic_tac_toe = TicTacToe()
 
+
 result = tic_tac_toe.get()
+
+def print_tic_tac_toe_feld(result):
+    for i, arr in enumerate(result):
+        row = ''
+        for elem in arr:
+            row += elem + ' '
+        print(row)
 
 
 while True:
-    n = int(input("Geben Sie bitte die Feldnummer ein: "))
+    print_tic_tac_toe_feld(result)
+    n = int(input(f"Spieler: {tic_tac_toe.spieler_nummer} - geben Sie bitte die Feldnummer ein: "))
 
     try:
         tic_tac_toe.set(n)
     except Exception as ex:
         print(ex)
 
-    for i, arr in enumerate(result):
-        row = ''
-        for elem in arr:
-            row += elem + ' '
-        print(row)
+
 
 
 # tic_tac_toe.set(1)
