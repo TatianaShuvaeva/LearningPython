@@ -5,7 +5,7 @@ from typing import List
 
 class TicTacToe:
     def __init__(self):
-        # self.spielfeld = [[str(i)]*3 for i in range(3)]
+       
         self.spielfeld = []
         self.spielfeld.append(['1', '2','3'])
         self.spielfeld.append(['4', '5','6'])
@@ -48,12 +48,23 @@ class TicTacToe:
         if self.spielfeld[zeile][spalte] == "x" or self.spielfeld[zeile][spalte] == "o":
             raise Exception("Diese Zelle ist bereits gefüllt")
         
-        zeichnen = None
+        zeichen = None
         if self.spieler_nummer == 1:
             
-            zeichnen = "x"
+            zeichen = "x"
         else:
-            zeichnen = "o"
-        self.spielfeld[zeile][spalte] = zeichnen
+            zeichen = "o"
+        self.spielfeld[zeile][spalte] = zeichen
         self.spielzugnummer += 1
         
+    # def erstellen_eindimensional_list(self):
+    #     self.neue_list = []
+    #     for list  in self.spielfeld:
+    #         for element in list:
+    #             self.neue_list.append(element)
+    #         return self.neue_list
+        
+    # def suchen_gewinner(self):
+    #     self.erstellen_eindimensional_list()  
+    #     for kombination in self.gewinnkombinationen:
+                     
