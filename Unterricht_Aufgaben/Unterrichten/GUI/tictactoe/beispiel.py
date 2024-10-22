@@ -1,4 +1,4 @@
-from Unterricht_Aufgaben.Unterrichten.GUI.tictactoe.cl_brett_ttt import TicTacToe
+from Unterricht_Aufgaben.Unterrichten.GUI.tictactoe.cl_tic_tac_toe import TicTacToe
 
 
 tic_tac_toe = TicTacToe()
@@ -22,8 +22,3 @@ while True:
         tic_tac_toe.set(n)
     except Exception as ex:
         print(ex)
-
-
-
-
-# tic_tac_toe.set(1)
