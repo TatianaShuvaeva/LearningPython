@@ -19,9 +19,9 @@ class WetterDienst:
 
         complete_url = self._base_url.format(stadt_name=stadt, api_key=self._api_key)
         response = requests.get(complete_url)
-        x = response.json()
-        if x["cod"] != 200:
-            raise Exception(x)
+        antwort_json = response.json()
+        if antwort_json["cod"] != 200:
+            raise Exception(antwort_json)
 
-        temperatur = x["main"]["temp"]
+        temperatur = antwort_json["main"]["temp"]
         return temperatur
