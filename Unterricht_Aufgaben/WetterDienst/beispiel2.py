@@ -12,7 +12,7 @@ if OPENWEATHERMAP_API_KEY is None:
 wetter_dienst = WetterDienst(OPENWEATHERMAP_API_KEY)
 
 wetter_stadt = wetter_dienst.get("Potsdam")
-print(wetter_stadt)
+print(wetter_stadt.temperature)
 # temperatur_stadt = wetter_dienst.get("Paris")
 # print(temperatur_stadt)
 
