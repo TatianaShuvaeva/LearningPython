@@ -1,6 +1,8 @@
 from functools import cache
 import requests
 import json
+from datetime import datetime
+from typing import Tuple
 
 
 class WetterDienst:
@@ -15,7 +17,7 @@ class WetterDienst:
         )
 
     @cache
-    def get_temperatur(self, stadt: str) -> float:
+    def get(self,  stadt: str) -> Tuple[float, float, float, int, float, str, str, str]:
 
         complete_url = self._base_url.format(stadt_name=stadt, api_key=self._api_key)
         response = requests.get(complete_url)
@@ -24,4 +26,11 @@ class WetterDienst:
             raise Exception(antwort_json)
 
         temperatur = antwort_json["main"]["temp"]
-        return temperatur
+        min_temperature = antwort_json["main"]["temp_min"]
+        max_temperature = antwort_json["main"]["temp_max"]
+        wind = antwort_json["wind"]["speed"]
+        luftfeuchtigkeit = antwort_json["main"]["humidity"]
+        sonnenaufgang = datetime.fromtimestamp(antwort_json["sys"]["sunrise"]).strftime('%H:%M:%S')
+        sonnenuntergang = datetime.fromtimestamp(antwort_json["sys"]["sunset"]).strftime('%H:%M:%S')
+        stadt = antwort_json["name"]
+        return temperatur, min_temperature, max_temperature, wind, luftfeuchtigkeit, sonnenaufgang, sonnenuntergang, stadt
