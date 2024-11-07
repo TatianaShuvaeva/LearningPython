@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, Response, request
 import os
 from dotenv import load_dotenv
 from Unterricht_Aufgaben.WetterDienst.cl_WetterDienst import WetterDienst
@@ -22,16 +22,18 @@ def hello_world():
 
 @app.route('/wetter')
 def get_wetter():
+    if request.args.get('stadt') is None:
+        return Response("Stadt ist None", status=400)
+    wetter_stadt = wetter_dienst.get(request.args.get('stadt'))
 
-    wetter_stadt = wetter_dienst.get("Potsdam")
     return {
         'temperature': wetter_stadt.temperature,
         'min_temperature': wetter_stadt.min_temperature,
         'max_temperature': wetter_stadt.max_temperature,
         'wind': wetter_stadt.wind,
         'luftfeuchtigkeit': wetter_stadt.luftfeuchtigkeit,
-        'sonnenaufgang': wetter_stadt.sonnenaufgang,
-        'sonnenuntergang': wetter_stadt.sonnenuntergang,
+        'sonnenaufgang': wetter_stadt.sonnenaufgang.isoformat(),
+        'sonnenuntergang': wetter_stadt.sonnenuntergang.isoformat(),
         'stadt': wetter_stadt.stadt
 
     }
