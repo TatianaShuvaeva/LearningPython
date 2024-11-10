@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WetterDienst - Wetterabfrage</title>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> -->
+</head>
+
+<body>
+    <div class="container">
+        <h1>Wetter Abfragen</h1>
+        <input type="text" id="city" placeholder="Stadt eingeben">
+        <button id="getWeatherBtn">Wetter Abfragen</button>
+        <div id="weatherInfo" class="weather-info">
+            <!-- Wetterinformationen werden hier angezeigt -->
+        </div>
+    </div>
+
+    <style>
+        /* Основные стили для оформления интерфейса */
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #feb47b, #ff7e5f);
+            transform: scale(1.1);
+        }
+
+        .weather-info {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+
+    <script>
+        document.getElementById('getWeatherBtn').addEventListener('click', function () {
+            const city = document.getElementById('city').value;
+            if (!city) {
+                alert('Bitte geben Sie eine Stadt ein');
+                return;
+            }
+
+            fetch(`/wetter?stadt=${city}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        document.getElementById('weatherInfo').innerHTML = 'Stadt nicht gefunden!';
+                    } else {
+                        document.getElementById('weatherInfo').innerHTML = `
+                            <p>Temperatur: ${data.temperature}°C</p>
+                            <p>Minimale Temperatur: ${data.min_temperature}°C</p>
+                            <p>Maximale Temperatur: ${data.max_temperature}°C</p>
+                            <p>Windgeschwindigkeit: ${data.wind} m/s</p>
+                            <p>Luftfeuchtigkeit: ${data.luftfeuchtigkeit}%</p>
+                            <p>Sonnenaufgang: ${new Date(data.sonnenaufgang).toLocaleTimeString()}</p>
+                            <p>Sonnenuntergang: ${new Date(data.sonnenuntergang).toLocaleTimeString()}</p>
+                        `;
+                    }
+                })
+                .catch(error => {
+                    document.getElementById('weatherInfo').innerHTML = 'Fehler beim Abrufen der Daten';
+                });
+        });
+    </script>
+</body>
+
+</html>
