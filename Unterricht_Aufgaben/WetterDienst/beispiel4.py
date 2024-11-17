@@ -51,8 +51,33 @@ def get_wetter():
         'sonnenaufgang': wetter_stadt.sonnenaufgang.isoformat(),
         'sonnenuntergang': wetter_stadt.sonnenuntergang.isoformat(),
         'stadt': wetter_stadt.stadt
-
     }
 
 
-app.run(host='0.0.0.0', port=5000)()
+@app.route('/vorhersage')
+def get_vorhersage():
+    ausgewaehlte_stadt = request.args.get('stadt')
+    if ausgewaehlte_stadt is None:
+        return Response("Stadt ist None", status=400)
+
+    return {
+        'stadt': ausgewaehlte_stadt,
+        'land': 'DE',
+        'temperaturen': [
+            {
+                "max_temperature": 8.39,
+                "min_temperature": 6.59,
+                "datum_zeit": "2024-11-17T06:33:14",
+                "temperature": 7.67,
+            },
+            {
+                "max_temperature": 9.39,
+                "min_temperature": 7.59,
+                "datum_zeit": "2024-11-17T09:33:14",
+                "temperature": 8.67,
+            }
+        ]
+    }
+
+
+app.run(host='0.0.0.0', port=5000)()  # type: ignore
