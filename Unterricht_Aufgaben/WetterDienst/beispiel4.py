@@ -1,8 +1,10 @@
+from typing import Any
 from flask import Flask, Response, request
 import os
 from dotenv import load_dotenv
 from Unterricht_Aufgaben.WetterDienst.cl_WetterDienst import WetterDienst
 from Unterricht_Aufgaben.WetterDienst.nicht_gefunden_fehler import NichtGefundenFehler
+from Unterricht_Aufgaben.WetterDienst.stadt_vorhersage import StadtVorhersage
 
 
 load_dotenv()
@@ -55,28 +57,18 @@ def get_wetter():
 
 
 @app.route('/vorhersage')
-def get_vorhersage():
+def get_vorhersage() -> Response | dict[str, Any]:
     ausgewaehlte_stadt = request.args.get('stadt')
     if ausgewaehlte_stadt is None:
         return Response("Stadt ist None", status=400)
 
+    vorhersage = wetter_dienst.get_vorhersage(ausgewaehlte_stadt)
+
     return {
-        'stadt': ausgewaehlte_stadt,
-        'land': 'DE',
-        'temperaturen': [
-            {
-                "max_temperature": 8.39,
-                "min_temperature": 6.59,
-                "datum_zeit": "2024-11-17T06:33:14",
-                "temperature": 7.67,
-            },
-            {
-                "max_temperature": 9.39,
-                "min_temperature": 7.59,
-                "datum_zeit": "2024-11-17T09:33:14",
-                "temperature": 8.67,
-            }
-        ]
+        'temperaturen': vorhersage.temperaturen,
+        'land': vorhersage.land,
+        'stadt': vorhersage.stadt
+        
     }
 
 
