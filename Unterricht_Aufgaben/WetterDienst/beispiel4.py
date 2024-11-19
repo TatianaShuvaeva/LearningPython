@@ -64,11 +64,21 @@ def get_vorhersage() -> Response | dict[str, Any]:
 
     vorhersage = wetter_dienst.get_vorhersage(ausgewaehlte_stadt)
 
+    temperaturen_isoformat = [
+        {
+            'datum_zeit': vorhersage_item.datum_zeit.isoformat(),
+            'temperature': vorhersage_item.temperature,
+            'min_temperature': vorhersage_item.min_temperature,
+            'max_temperature': vorhersage_item.max_temperature
+        }
+        for vorhersage_item in vorhersage.temperaturen
+    ]
+
     return {
-        'temperaturen': vorhersage.temperaturen,
+        'temperaturen': temperaturen_isoformat,
         'land': vorhersage.land,
         'stadt': vorhersage.stadt
-        
+
     }
 
 
